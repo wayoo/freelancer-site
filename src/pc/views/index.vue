@@ -8,7 +8,30 @@
                     <div class="sub-title">合法合规的企业灵活用工平台</div>
                     <div class="desc">壹薪网是专注为企业提供灵活用工业务众包服务及费用结算的互联网共享服务平台； <br>
 针对企业临时人员改造劳动关系，合规降低企业成本，<br>防止社保入税后不合规经营产生的税务稽查风险。</div>
-                    <div class="btn primary">立即深度了解></div>
+
+                    <el-popover
+                        placement="right-start"
+                        popper-class="popup-get-contact"
+                        width="800"
+                        trigger="click"
+                    >
+                    <div class="btn primary" slot="reference">立即深度了解></div>
+
+                    <slot>
+                        <div class="title">申请企业用工优化解决方案</div>
+                        <div class="form">
+                            <input class="input" type="text" placeholder="您的企业名称是？" v-model="form.company_name">
+                            <input class="input" type="text" placeholder="我们怎么称呼您？" v-model="form.person_name">
+                            <input class="input" type="text" placeholder="您的联系方式是？" v-model="form.persion_mobile">
+                        </div>
+                        <div class="desc">请放心，我们不会泄露您的隐私，并且只在工作时间内与您联系。</div>
+                        <div class="btn" @click="getContact"
+                            v-loading="isLoading.top"
+                            element-loading-spinner="el-icon-loading"
+                            >获取解决方案</div>
+                    </slot>
+                    </el-popover>
+
                 </div>
                 <div class="banner pull-right"></div>
             </section>
@@ -76,14 +99,30 @@
 
         </div>
 
+        <div class="feature">
+            <div class="container">
+                <div class="feature-title">行业覆盖</div>
+                <div class="feature-desc">INDUSTRY SCOPE</div>
+                <div class="feature-list">
+                    <div class="mini-item" v-for="(item, n) in feature_three" :key="n">
+                        <img :src="require(`../../assets/pc/images/feature/0002/${n+1}.png`)" alt="">
+                        <div class="title">{{ item.title }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer-banner">
             <div class="container">
                 <div class="pull-left join-form">
                     <div class="form-title">申请企业用工优化专家方案</div>
-                    <input class="form-input" type="text" placeholder="请输入您的企业名称">
-                    <input class="form-input" type="text" placeholder="请输入联系人">
-                    <input class="form-input" type="text" placeholder="请输入您的联系方式">
-                    <div class="btn block">获取解决方案</div>
+                    <input class="form-input" type="text" placeholder="请输入您的企业名称" v-model="formBottom.company_name">
+                    <input class="form-input" type="text" placeholder="请输入联系人" v-model="formBottom.persion_mobile">
+                    <input class="form-input" type="text" placeholder="请输入您的联系方式" v-model="formBottom.person_name">
+                    <div class="btn block" @click="getContactBottom"
+                        v-loading="isLoading.bottom"
+                        element-loading-spinner="el-icon-loading"
+                        >获取解决方案</div>
                 </div>
                 <div class="pull-right corp-intro">
                     <div class="corp-title">合法合规的企业灵活用工平台</div>
@@ -105,6 +144,7 @@
 <script>
 import Header from '../comp/header';
 import Footer from '../comp/footer';
+import api from '../../api/index';
 
 export default {
     components: {
@@ -113,6 +153,20 @@ export default {
     },
     data() {
         return {
+            form: {
+                company_name: '',
+                person_name: '',
+                persion_mobile: '',
+            },
+            formBottom: {
+                company_name: '',
+                person_name: '',
+                persion_mobile: '',
+            },
+            isLoading: {
+                top: false,
+                bottom: false,
+            },
             feature_one: [
                 {
                     title: '实名认证',
@@ -164,13 +218,122 @@ export default {
                     title: '平台保障',
                     desc: '平台固化整个任务流程及佣金结算的流程记录<br>用工安全合规有保障'
                 }
+            ],
+            feature_three: [
+                {title: '生活服务类'},
+                {title: '物流配送类'},
+                {title: '传统企业类'},
+                {title: '互联网平台'},
+                {title: '资讯营销类'},
+                {title: '教育平台类'},
+                {title: '培训服务类'},
+                {title: '呼叫中心类'},
             ]
+        }
+    },
+    methods: {
+        verifyForm(data) {
+            if(!data.company_name) {
+                return this.$message.error('请输入公司名字');
+            }
+            if(!data.person_name) {
+                return this.$message.error('请输入联系人名字');
+            }
+            if(!data.persion_mobile) {
+                return this.$message.error('请输入联系电话');
+            }
+
+            return true;
+        },
+        getContact() {
+            if (this.verifyForm(this.form) !== true) {
+                return;
+            }
+
+            this.isLoading.top = true;
+            api.contact(this.form).then(res => {
+                this.$message({
+                    message: '我们的工作人员会及时与您取得联系~',
+                    type: 'success'
+                });
+                this.isLoading.top = false;
+            }, () => {
+                this.isLoading.top = false;
+            })
+        },
+        getContactBottom() {
+            if (this.verifyForm(this.formBottom) !== true) {
+                return;
+            }
+
+            this.isLoading.bottom = true;
+            api.contact(this.formBottom).then(res => {
+                this.$message({
+                    message: '我们的工作人员会及时与您取得联系~',
+                    type: 'success'
+                });
+                this.isLoading.bottom = false;
+            }, () => {
+                this.isLoading.bottom = false;
+            })
         }
     }
 }
 </script>
 
 <style lang="less">
+.popup-get-contact {
+    background: #4a8cff;
+    color: #fff;
+
+    .title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .form {
+        margin-bottom: 20px;
+
+        .input {
+            width: 170px;
+            height: 35px;
+            border: none;
+            padding: 0 10px;
+            background: #2b6ee2;
+            color: #fff;
+            margin-right: 24px;
+
+            &::placeholder{
+                color: #fff;
+            }
+        }
+    }
+
+    .desc {
+        font-size: 14px;
+        padding-bottom: 20px;
+    }
+
+    .btn {
+        position: absolute;
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        right: 25px;
+        bottom: 25px;
+        background: #fff;
+        color: #263044;
+        line-height: 35px;
+        cursor: pointer;
+    }
+}
+
+.popup-get-contact[x-placement^=right] .popper__arrow::after {
+    border-right-color: #4a8cff;
+}
+
+
 .page-index {
     .section-banner {
         padding-top: 100px;
@@ -285,6 +448,11 @@ export default {
         text-align: center;
         margin-bottom: 150px;
 
+        .feature-list {
+            overflow: hidden;
+
+        }
+
         .feature-title {
             font-size: 36px;
             color: #002866;
@@ -298,6 +466,35 @@ export default {
             font-size: 24px;
             color: #e9eaeb;
             margin-bottom: 70px;
+        }
+
+        .mini-item {
+            width: 142px;
+            height: 142px;
+            float: left;
+
+            img {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            .title {
+                font-size: 20px;
+                color: #032c64;
+            }
+
+            &:hover {
+                transition: ease-in .3s background-color;
+                color: #fff;
+                background: #4a8cff;
+
+                .title {
+                    color: #fff;
+                }
+                .desc {
+                    display: block;
+                }
+            }
         }
 
         .feature-row {
@@ -389,6 +586,7 @@ export default {
                 box-sizing: border-box;
                 background: #1c2433;
                 margin-bottom: 10px;
+                color: #fff;
             }
         }
 

@@ -26,10 +26,17 @@ module.exports = {
         },
     },
     devServer: {
-        // historyApiFallback: {
-        //     rewrites: [
-        //         { from: /^\/pc\/.*$/, to: '/pc.html' },
-        //     ],
-        // },
+        open: true,
+        proxy: {
+            '/api': {
+                target: 'http://zyx-api.kk.wolaixiyi.com',
+                // target: 'http://www.zyx.com',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/api',
+                },
+            },
+        },
     },
 };
