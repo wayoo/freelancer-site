@@ -5,8 +5,8 @@
             <section class="section-banner">
                 <div class="pull-left intro">
                     <div class="main-title">壹薪网</div>
-                    <div class="sub-title">合法合规的企业灵活用工平台</div>
-                    <div class="desc">壹薪网是专注为企业提供灵活用工业务众包服务及费用结算的互联网共享服务平台； <br>
+                    <div class="sub-title">合法合规的企业众包互助平台</div>
+                    <div class="desc">壹薪网是专注为企业提供众包互助业务众包服务及费用结算的互联网共享服务平台； <br>
 针对企业临时人员改造劳动关系，合规降低企业成本，<br>防止社保入税后不合规经营产生的税务稽查风险。</div>
 
                     <el-popover
@@ -42,7 +42,7 @@
                 <div class="banner-advance"></div>
                 <div class="content">
                     <div class="title">我们能为您的企业提供</div>
-                    <div class="text">壹薪网能够通过专业化的成本分析模型来为您的企业量身定做灵活用工方案，
+                    <div class="text">壹薪网能够通过专业化的成本分析模型来为您的企业量身定做众包互助方案，
                         以合法、合规的方式为您的企业<em>减少社保成本</em>；
                         通过对企业临时人员改造劳动关系来<em>降低人员流动成本</em>，
                         并且可以有效解决<em>劳务用工无发票</em>的问题；
@@ -125,10 +125,10 @@
                         >获取解决方案</div>
                 </div>
                 <div class="pull-right corp-intro">
-                    <div class="corp-title">合法合规的企业灵活用工平台</div>
+                    <div class="corp-title">合法合规的企业众包互助平台</div>
                     <div class="corp-name">壹薪网</div>
                     <div class="corp-desc">
-我们是专注为企业提供灵活用工业务众包服务及费用结算的互联网共享服务平台 <br>
+我们是专注为企业提供众包互助业务众包服务及费用结算的互联网共享服务平台 <br>
 针对企业临时人员改造劳动关系，合规降低企业成本 <br>
 防止社保入税后不合规经营产生的税务稽查风险 <br>
 让我们来聊一聊，为您的企业减少可观的运营成本 <br>
