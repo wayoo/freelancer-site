@@ -576,6 +576,7 @@ export default {
                 font-size: 14px;
             }
 
+
             .form-input {
                 display: block;
                 height: 40px;
