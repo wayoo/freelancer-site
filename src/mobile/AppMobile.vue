@@ -20,4 +20,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.text-center {
+    text-align: center;
+}
 </style>
