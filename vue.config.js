@@ -12,7 +12,7 @@ module.exports = {
             title: 'Index Page',
             // chunks to include on this page, by default includes
             // extracted common chunks and vendor chunks.
-            chunks: ['chunk-vendors', 'chunk-common', 'pc'],
+            chunks: ['chunk-vendors', 'commons', 'pc'],
         },
         // when using the entry-only string format,
         // template is inferred to be `public/subpage.html`
@@ -22,8 +22,37 @@ module.exports = {
             entry: 'src/mobile/main.js',
             template: 'public/mobile.html',
             filename: 'mobile.html',
-            chunks: ['chunk-vendors', 'chunk-common', 'mobile'],
+            chunks: ['chunk-vendors', 'commons', 'mobile'],
         },
+    },
+    configureWebpack: (config) => {
+        return {
+            optimization: {
+                splitChunks: {
+                    cacheGroups: {
+                        vendors: {
+                            // https://stackoverflow.com/questions/50937643/exclude-certain-module-from-a-chunk-webpack-4
+                            test(mod/* , chunk */) {
+                                // Only node_modules are needed
+                                if (!mod.context.includes('node_modules')) {
+                                    return false;
+                                }
+                                // But not node modules that contain these key words in the path
+                                // mand-mobile element-ui 分别为移动端和 PC 端的组件库，不需要打包到 vendors 里面去
+                                // return false 之后会自动被 webpack 打包的 pc.js 和 mobile.js 两个 entry file 中去
+                                // 没有 name 名字会自动被设置为 chunk-vendors
+                                if (['mand-mobile', 'element-ui'].some(str => mod.context.includes(str))) {
+                                    return false;
+                                }
+                                return true;
+                            },
+                            chunks: 'all',
+                        },
+                    },
+                },
+                mergeDuplicateChunks: true,
+            },
+        }
     },
     devServer: {
         open: true,
