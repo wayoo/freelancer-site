@@ -7,6 +7,7 @@
         <div v-if="isMenuShow" class="menu">
             <a class="item" href="https://m.56work.cn">服务者登录</a>
             <a class="item" @click="showAlert">商家登录</a>
+            <div class="item" @click="getContact">联系我们</div>
         </div>
     </div>
 </template>
@@ -38,6 +39,10 @@ export default {
             } else {
                 this.isMenuShow = true;
             }
+        },
+        getContact() {
+            this.$emit('contact');
+            this.isMenuShow = false;
         }
     }
 }
@@ -90,7 +95,7 @@ export default {
 
         .item {
             display: block;
-            color: #fff;
+            color: #103669;
             text-decoration: none;
             font-size: 36px;
         }

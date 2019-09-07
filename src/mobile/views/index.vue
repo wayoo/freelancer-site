@@ -1,6 +1,6 @@
 <template>
     <div class="page-index">
-        <Header></Header>
+        <Header @contact="showPopup"></Header>
         <!-- <div class="md-example-child md-example-child-drop-menu md-example-child-drop-menu-0">
             <md-drop-menu :data="data" />
         </div> -->
