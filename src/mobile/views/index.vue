@@ -95,7 +95,7 @@
                 <input class="text-input" v-model="form.company_name" type="text" placeholder="您的企业名称是？">
                 <input class="text-input" v-model="form.person_name" type="text" placeholder="我们怎么称呼您？">
                 <input class="text-input" v-model="form.persion_mobile" type="text" placeholder="您的联系方式是？">
-                <md-button :loading="isLoading.top" type="default" class="btn" @click="getContact">获取解决方案</md-button>
+                <md-button :loading="isLoading.top" type="primary" class="btn" @click="getContact">获取解决方案</md-button>
             </div>
         </md-popup>
 
@@ -543,8 +543,8 @@ export default {
             }
 
             .text-input {
+                background: #fff;
                 display: block;
-                background: #2b6ee2;
                 height: 72px;
                 width: 560px;
                 margin: 0 auto;
@@ -553,10 +553,10 @@ export default {
                 text-align: center;
                 margin-bottom: 50px;
                 outline: none;
-                color: #fff;
+                color: #333;
 
                 &::placeholder{
-                    color: #fff;
+                    color: #ccc;
                 }
             }
 
