@@ -80,7 +80,8 @@ export default {
     .menu {
         z-index: 100;
         top: 120px;
-        right: 40px;
+        right: 0;
+        padding-right: 40px;
         position: absolute;
         width: 200px;
         background: #4a8cff;

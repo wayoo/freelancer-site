@@ -561,11 +561,7 @@ export default {
             }
 
             .btn {
-                position: fixed;
-                width: 560px;
-                left: 50%;
-                margin-left: -280px;
-                bottom: 100px;
+                margin-top: 80px;
             }
         }
     }
