@@ -59,9 +59,10 @@ export default {
 
     .logo {
         display: inline-block;
-        width: 115px;
+        width: 70px;
         height: 37px;
         background: url("../../assets/pc/logo.png");
+        background-size: 70px 37px;
         margin-top: 14px;
     }
 

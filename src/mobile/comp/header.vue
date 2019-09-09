@@ -66,10 +66,10 @@ export default {
     // }
     .logo {
         display: inline-block;
-        width: 196px;
+        width: 133px;
         height: 70px;
         background: url("../../assets/mobile/images/logo.png");
-        background-size: 196px 70px;
+        background-size: 133px 70px;
         margin: 24px 0 0 24px;
     }
 
