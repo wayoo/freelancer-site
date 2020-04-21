@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <div class="footer">北京蜗牛企服科技有限公司™   鲁ICP备19039591号-1</div>
+        <div class="footer">青岛蜗牛企服网络科技有限公司™   鲁ICP备19039591号-1</div>
     </div>
 </template>
 
