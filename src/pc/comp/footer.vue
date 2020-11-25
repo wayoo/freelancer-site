@@ -1,7 +1,7 @@
 <template>
     <div class="comp-footer">
         <div class="container text-center">
-            蜗牛企服（北京）科技有限公司™   鲁ICP备19039591号-1
+            蜗牛企服（北京）科技有限公司™   <a target="_blank" style="color: white;text-decoration: none;" href="https://beian.miit.gov.cn">鲁ICP备19039591号-1</a>
         </div>
         <div style="width:300px;margin:0 auto; padding:20px 0;font-size: 12px;text-align: center;">
             <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028502200443"

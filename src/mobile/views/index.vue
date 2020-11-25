@@ -70,6 +70,16 @@
             </div>
         </div>
 
+        <div class="mod-panel light">
+            <div class="panel-hd">
+                <div class="panel-title">业务模式</div>
+                <div class="panel-desc">BUSINESS MODEL</div>
+            </div>
+            <div>
+                <div class="business-model-profile"></div>
+            </div>
+        </div>
+
         <div class="mod-panel dark">
             <div class="panel-hd">
                 <div class="panel-title">行业覆盖</div>
@@ -116,7 +126,9 @@
             </div>
         </div>
 
-        <div class="footer">蜗牛企服（北京）科技有限公司™   鲁ICP备19039591号-1</div>
+        <div class="footer">蜗牛企服（北京）科技有限公司™
+            <a target="_blank" href="https://beian.miit.gov.cn" style="color: #103669; text-decoration: none">
+            鲁ICP备19039591号-1</a></div>
         <div style="width:300px;margin:0 auto; padding:20px 0;font-size: 12px; text-align: center;">
             <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37028502200443"
                 style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
@@ -351,6 +363,13 @@ export default {
             }
         }
 
+        &.light {
+            padding-top: 120px;
+            .panel-desc {
+                margin: 0;
+            }
+        }
+
         .panel-title {
             font-size: 36px;
             color: #4a8cff;
@@ -573,6 +592,12 @@ export default {
                 margin-top: 80px;
             }
         }
+    }
+
+    .business-model-profile {
+        height: 400px;
+        background: url("../../assets/mobile/company.png") center center;
+        background-size: 1280px auto;
     }
 }
 </style>

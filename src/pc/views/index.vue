@@ -101,6 +101,15 @@
 
         <div class="feature">
             <div class="container">
+                <div class="feature-title">业务模式</div>
+                <div class="feature-desc">BUSINESS MODEL</div>
+            </div>
+        </div>
+        <div class="business-model-profile"></div>
+
+
+        <div class="feature">
+            <div class="container">
                 <div class="feature-title">行业覆盖</div>
                 <div class="feature-desc">INDUSTRY SCOPE</div>
                 <div class="feature-list">
@@ -552,6 +561,15 @@ export default {
                 }
             }
         }
+
+
+    }
+    .business-model-profile {
+        height: 600px;
+        background: url("../../assets/pc/company.png") center center;
+        background-color: #f1f5fc;
+        margin-bottom: 150px;
+        margin-top: -100px;
     }
 
     .footer-banner {
